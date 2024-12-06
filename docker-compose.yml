@@ -14,6 +14,21 @@ services:
         depends_on:
             - mysql
             - redis
+    roadrunner:
+        build:
+          context: ./
+          dockerfile: ./.docker/php/Dockerfile-roadrunner.local
+        ports:
+          - ${APP_PORT_RR:-8081}:8081
+          - ${VITE_PORT_RR:-5173}:${VITE_PORT:-5173}
+        volumes:
+          - ./:${WORKDIR}
+          - ./vendor/:${WORKDIR}/vendor
+        networks:
+          - crm-network
+        depends_on:
+          - mysql
+          - redis
 
     mysql:
         image: mysql/mysql-server:${MYSQL_VERSION:-8.0}
