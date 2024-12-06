@@ -30,18 +30,23 @@ A modern CRM system built using Laravel and modified with docker and frankenPhp.
 5. Make sure you have correct folder permissions to your current user. Build the Docker containers:
    ```bash
    docker-compose build or sudo docker-compose build
-   (you can add --no-cache if you don't want to use any cached layers)
    ```
+   (you can add --no-cache if you don't want to use any cached layers)
 
-6. Start the application:
+6. Recreate config cache to avoid db connection issue:
+    ```bash
+    php artisan config:cache
+    ```
+
+7. Start the application:
    ```bash
    docker-compose up
    ```
    Use `php artisan config:cache` if you are facing any database connection issue. [optional]
 
-7. Verify the application:
+8. Verify the application:
    ```bash
    http://localhost:61/
    ```
-8. Follow the instructions to install, make sure to add database credentials mentioned in `.env.example`
+9. Follow the instructions to install, make sure to add database credentials mentioned in `.env.example`
  
