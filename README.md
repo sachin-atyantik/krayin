@@ -22,12 +22,11 @@ A modern CRM system built using Laravel and modified with docker and frankenPhp.
    ```bash
    cp .env.example .env
    ```
-
-4.Generate the application key:
+4. Generate the application key:
    ```bash
    php artisan key:generate
    ```
-
+   
 5. Build the Docker containers:
    ```bash
    docker-compose build
