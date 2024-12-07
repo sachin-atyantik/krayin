@@ -26,3 +26,6 @@ package-lock.json
 /vendor
 yarn.lock
 yarn-error.log
+database/mysql-database/
+database/redis-database/
+
