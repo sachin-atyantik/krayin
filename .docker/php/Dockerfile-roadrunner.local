@@ -1,9 +1,6 @@
 FROM php:8.3-fpm
 
-# Set Caddy server name to "http://" to serve on 80 and not 443
-ENV SERVER_NAME="http://"
-
-RUN curl -sSL https://get.roadrunner.dev | bash
+# RUN curl -sSL https://get.roadrunner.dev | bash
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -63,5 +60,8 @@ EXPOSE 8081
 COPY ./.docker/start-container-rr.sh /usr/local/bin/start-container-rr.sh
 RUN chmod +x /usr/local/bin/start-container-rr.sh
 
-# Command to run the application
+# One time command to install
+RUN php artisan octane:install --server=roadrunner
+
+# Command for script execution
 CMD ["/usr/local/bin/start-container-rr.sh"]

@@ -13,7 +13,6 @@ services:
             - crm-network
         depends_on:
             - mysql
-            - redis
     roadrunner:
         build:
           context: ./
@@ -28,7 +27,6 @@ services:
           - crm-network
         depends_on:
           - mysql
-          - redis
 
     mysql:
         image: mysql/mysql-server:${MYSQL_VERSION:-8.0}
@@ -51,21 +49,6 @@ services:
                 - mysqladmin
                 - ping
                 - -p${DB_PASSWORD}
-            retries: 3
-            timeout: 5s
-    redis:
-        image: redis:alpine
-        ports:
-            - ${FORWARD_REDIS_PORT:-6379}:6379
-        volumes:
-            - ${REDIS_VOLUME_LOCAL:-./database/redis-data}:/data
-        networks:
-            - crm-network
-        healthcheck:
-            test:
-                - CMD
-                - redis-cli
-                - ping
             retries: 3
             timeout: 5s
 networks:
