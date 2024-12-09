@@ -22,32 +22,37 @@ A modern CRM system built using Laravel and modified with **docker**, **frankenP
    ```bash
    cp .env.example .env
    ```
-4. Generate the application key:
+4. Run below command to install all the required dependencies:
+   ```bash
+   composer install
+   ```
+
+5. Generate the application key:
    ```bash
    php artisan key:generate
    ```
 
-5. Make sure you have correct folder permissions to your current user. Build the Docker containers:
+6. Make sure you have correct folder permissions to your current user. Build the Docker containers:
    ```bash
    docker-compose build or sudo docker-compose build
    ```
    (you can add --no-cache if you don't want to use any cached layers)
 
-6. Recreate config cache to avoid db connection issue:
+7. Recreate config cache to avoid db connection issue:
     ```bash
     php artisan config:cache
     ```
 
-7. Start the application:
+8. Start the application:
    ```bash
    docker-compose up
    ```
    Use `php artisan config:cache` if you are facing any database connection issue. [optional]
 
-8. Verify the application : for **frankenPhp** use port **61**, for **RoadRunner** use port **62**:
+9. Verify the application : for **frankenPhp** use port **61**, for **RoadRunner** use port **62**:
    ```bash
    http://localhost:61/
    http://localhost:62/
    ```
-9. Follow the instructions to install, make sure to add database credentials mentioned in `.env.example`
+10. Follow the instructions to install, make sure to add database credentials mentioned in `.env.example`
  
