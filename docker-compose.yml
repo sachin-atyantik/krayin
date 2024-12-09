@@ -19,7 +19,7 @@ services:
           dockerfile: ./.docker/php/Dockerfile-roadrunner.local
         ports:
           - ${APP_PORT_RR:-8081}:8081
-          - ${VITE_PORT_RR:-5173}:${VITE_PORT:-5173}
+          - ${VITE_PORT_RR:-5174}:${VITE_PORT_RR:-5174}
         volumes:
           - ./:${WORKDIR}
           - ./vendor/:${WORKDIR}/vendor
@@ -27,6 +27,20 @@ services:
           - crm-network
         depends_on:
           - mysql
+    swool:
+      build:
+        context: ./
+        dockerfile: ./.docker/php/Dockerfile-swool.local
+      ports:
+        - ${APP_PORT_SWOOL:-8082}:8082
+        - ${VITE_PORT_SWOOL:-5175}:${VITE_PORT_SWOOL:-5175}
+      volumes:
+        - ./:${WORKDIR}
+        - ./vendor/:${WORKDIR}/vendor
+      networks:
+        - crm-network
+      depends_on:
+        - mysql
 
     mysql:
         image: mysql/mysql-server:${MYSQL_VERSION:-8.0}
