@@ -198,6 +198,7 @@ return [
         /*
          * Webkul Service Providers...
          */
+        Webkul\Category\Providers\CategoryServiceProvider::class,
         Webkul\Activity\Providers\ActivityServiceProvider::class,
         Webkul\Admin\Providers\AdminServiceProvider::class,
         Webkul\Attribute\Providers\AttributeServiceProvider::class,
