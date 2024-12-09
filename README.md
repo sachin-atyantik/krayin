@@ -49,7 +49,7 @@ A modern CRM system built using Laravel and modified with **docker**, **frankenP
    ```
    Use `php artisan config:cache` if you are facing any database connection issue. [optional]
 
-9. Verify the application : Port **61**, **62**, **63** represents **frankenPhp**, **RoadRunner**, and **Swoole**:
+9. Verify the application : Port **61**, **62**, **63** represents **frankenPhp**, **RoadRunner**, and **Swoole** respectively:
    ```bash
    http://localhost:61/
    http://localhost:62/
