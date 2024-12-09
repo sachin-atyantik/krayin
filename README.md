@@ -1,6 +1,6 @@
 # Krayin CRM
 
-A modern CRM system built using Laravel and modified with **docker**, **frankenPhp** and **RoadRunner**.
+A modern CRM system built using Laravel and modified with **docker**, **frankenPhp**, **RoadRunner** and **Swoole**.
 
 ## Prerequisites
 
@@ -49,10 +49,11 @@ A modern CRM system built using Laravel and modified with **docker**, **frankenP
    ```
    Use `php artisan config:cache` if you are facing any database connection issue. [optional]
 
-9. Verify the application : for **frankenPhp** use port **61**, for **RoadRunner** use port **62**:
+9. Verify the application : Port **61**, **62**, **63** represents **frankenPhp**, **RoadRunner**, and **Swoole**:
    ```bash
    http://localhost:61/
    http://localhost:62/
+   http://localhost:63/
    ```
 10. Follow the instructions to install, make sure to add database credentials mentioned in `.env.example`
  
