@@ -4,7 +4,7 @@ services:
             context: ./
             dockerfile: ./.docker/php/Dockerfile.local
         ports:
-            - ${APP_PORT:-8000}:8000
+            - ${APP_PORT:-61}:8000
             - ${VITE_PORT:-5173}:${VITE_PORT:-5173}
         volumes:
             - ./:${WORKDIR}
@@ -18,7 +18,7 @@ services:
           context: ./
           dockerfile: ./.docker/php/Dockerfile-roadrunner.local
         ports:
-          - ${APP_PORT_RR:-8081}:8081
+          - ${APP_PORT_RR:-62}:8081
           - ${VITE_PORT_RR:-5174}:${VITE_PORT_RR:-5174}
         volumes:
           - ./:${WORKDIR}
@@ -32,7 +32,7 @@ services:
         context: ./
         dockerfile: ./.docker/php/Dockerfile-swool.local
       ports:
-        - ${APP_PORT_SWOOL:-8082}:8082
+        - ${APP_PORT_SWOOL:-63}:8082
         - ${VITE_PORT_SWOOL:-5175}:${VITE_PORT_SWOOL:-5175}
       volumes:
         - ./:${WORKDIR}
@@ -45,7 +45,7 @@ services:
     mysql:
         image: mysql/mysql-server:${MYSQL_VERSION:-8.0}
         ports:
-            - ${FORWARD_DB_PORT:-3306}:3306
+            - ${FORWARD_DB_PORT:-3307}:3306
         environment:
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
             MYSQL_ROOT_HOST: "%"
